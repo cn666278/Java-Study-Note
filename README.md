@@ -33,3 +33,7 @@ for (Integer value : values) {
 	sj.add(value.toString());  
 }  
 ```
+```java
+Output:
+(1,3,5)
+```
