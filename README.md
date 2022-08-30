@@ -37,3 +37,63 @@ for (Integer value : values) {
 Output:
 (1,3,5)
 ```
+
+## 深拷贝和浅拷贝？(Clone and Deep Clone)
+### 浅拷贝:拷⻉对象和原始对象的引⽤类型 `引用同⼀个对象`。
+
+以下例子，Cat对象里面有个Person对象，调用clone之后，克隆对象和原对象的Person引用的是同一个对象，这就是浅拷贝。  
+
+```java
+public class Cat implements Cloneable {
+    private String name;
+    private Person owner;
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Cat c = new Cat();
+        Person p = new Person(18, "程序员大彬");
+        c.owner = p;
+
+        Cat cloneCat = (Cat) c.clone();
+        p.setName("大彬");
+        System.out.println(cloneCat.owner.getName());
+    }
+    //output
+    //大彬(随着克隆对象的修改而改变)
+}
+```
+
+### 深拷贝:拷贝对象和原始对象的引用类型 `引用不同的对象`。  
+
+以下例子，在clone函数中不仅调用了super.clone，而且调用Person对象的clone方法（Person也要实现Cloneable接口并重写clone方法），从而实现了深拷贝。可以看到，拷贝对象的值不会受到原对象的影响。  
+
+```java
+public class Cat implements Cloneable {
+    private String name;
+    private Person owner;
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Cat c = null;
+        c = (Cat) super.clone();
+        c.owner = (Person) owner.clone();//拷贝Person对象
+        return c;
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Cat c = new Cat();
+        Person p = new Person(18, "程序员大彬");
+        c.owner = p;
+
+        Cat cloneCat = (Cat) c.clone();
+        p.setName("大彬");
+        System.out.println(cloneCat.owner.getName());
+    }
+    //output
+    //程序员大彬(不随着克隆对象的修改而改变，真正的独立克隆个体)
+}
+```
