@@ -292,7 +292,9 @@ public abstract class Employee
    
    //其余代码
 }
+```
 
+```java
 // Interface
 //电源接口
 interface Adapter {
