@@ -254,3 +254,27 @@ public class Student extends Person {
     }
 }
 ```
+
+## 接口与抽象类区别？  
+[More details](https://blog.csdn.net/guibar/article/details/110092550)  
+
+1、语法层面上的区别
+
+抽象类可以有方法实现，而接口的方法中只能是抽象方法（Java 8 开始接口方法可以有默认实现）；
+抽象类中的成员变量可以是各种类型的，接口中的成员变量只能是public static final类型；
+接口中不能含有静态代码块以及静态方法，而抽象类可以有静态代码块和静态方法；
+一个类只能继承一个抽象类，而一个类却可以实现多个接口。
+2、设计层面上的区别
+
+抽象层次不同。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口只是对类行为进行抽象。继承抽象类是一种"是不是"的关系，而接口实现则是 "有没有"的关系。如果一个类继承了某个抽象类，则子类必定是抽象类的种类，而接口实现则是具备不具备的关系，比如鸟是否能飞。
+继承抽象类的是具有相似特点的类，而实现接口的却可以不同的类。
+门和警报的例子：
+```java
+class AlarmDoor extends Door implements Alarm {
+    //code
+}
+
+class BMWCar extends Car implements Alarm {
+    //code
+}
+```
