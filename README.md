@@ -279,3 +279,60 @@ class BMWCar extends Car implements Alarm {
     //code
 }
 ```
+
+```java
+// Abstract class
+public abstract class Employee
+{
+   private String name;
+   private String address;
+   private int number;
+   
+   public abstract double computePay();
+   
+   //其余代码
+}
+
+// Interface
+//电源接口
+interface Adapter {
+    public void input();//充电
+}
+//USB 接口 连接鼠标
+interface USB {
+    public void mouse();
+}
+//网络接口   可以联网
+interface Net {
+    public void internet();
+}
+class Computer implements Adapter, USB, Net{
+    @Override
+    public void internet() {
+        // TODO Auto-generated method stub
+        System.out.println("联网");
+    }
+
+    @Override
+    public void mouse() {
+        // TODO Auto-generated method stub
+        System.out.println("连接鼠标");
+    }
+
+    @Override
+    public void input() {
+        // TODO Auto-generated method stub
+        System.out.println("充电！！！");
+    }
+    
+}
+public class Demo3 {
+    public static void main(String[] args) {
+        Computer computer = new Computer();
+        computer.mouse();
+        computer.input();
+        computer.internet();
+    }
+
+}
+```
