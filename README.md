@@ -210,3 +210,46 @@ public final class Test {
    // 类体
 }
 ```
+
+## 方法重载(overload)和重写(override)的区别？
+[More details](https://www.runoob.com/java/java-override-overload.html)
+同个类中的多个方法可以有相同的方法名称，但是有`不同的参数列表`，这就称为方法重载。参数列表又叫参数签名，包括参数的类型、参数的个数、参数的顺序，只要有一个不同就叫做参数列表不同。
+
+重载`overload`是面向对象的一个基本特性。
+
+```java
+public class OverloadTest {
+    void setPerson() { }
+    
+    void setPerson(String name) {
+        //set name
+    }
+    
+    void setPerson(String name, int age) {
+        //set name and age
+    }
+}
+```
+
+方法的重写`override`描述的是父类和子类之间的。当父类的功能无法满足子类的需求，可以在子类对方法进行重写。  
+方法重写时， `方法名与形参列表必须一致`。
+
+如下代码，Person为父类，Student为子类，在Student中重写了dailyTask方法。
+
+```java
+public class Person {
+    private String name;
+    
+    public void dailyTask() {
+        System.out.println("work eat sleep");
+    }
+}
+
+
+public class Student extends Person {
+    @Override
+    public void dailyTask() {
+        System.out.println("study eat sleep");
+    }
+}
+```
