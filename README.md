@@ -98,6 +98,11 @@ public class Cat implements Cloneable {
 }
 ```
 
+### 如何实现对象克隆？
+* 实现Cloneable接口，重写 clone() 方法。这种方式是浅克隆，即如果类中属性有自定义引用类型，只拷贝引用，不拷贝引用指向的对象。如果对象的属性的Class也实现 Cloneable 接口，那么在克隆对象时也会克隆属性，即深克隆。  
+* 结合序列化，深克隆。  
+* 通过org.apache.commons中的工具类BeanUtils和PropertyUtils进行对象复制。  
+
 ## 类实例化的顺序
 ### Java中类实例化顺序：
 
