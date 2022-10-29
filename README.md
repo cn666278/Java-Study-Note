@@ -375,3 +375,6 @@ public class Demo3 {
 
 举个例子，理解下同步、阻塞、异步、非阻塞的区别：
 同步就是烧开水，要自己来看开没开；异步就是水开了，然后水壶响了通知你水开了（回调通知）。阻塞是烧开水的过程中，你不能干其他事情，必须在旁边等着；非阻塞是烧开水的过程里可以干其他事情。
+
+### java移位运算符
+<img src="https://github.com/cn666278/Java-Study-Note/blob/main/java%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6.png">
